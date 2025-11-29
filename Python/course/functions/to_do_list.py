@@ -1,24 +1,24 @@
 
-def takeInput(to_do_list):
-   add = input("Enter the task to add:")
+def takeInput(to_do_list: list):
+   add = input("Enter the task to add:").upper()
    to_do_list.append(add)
 
-def removeTask(to_do_list):
-    rem = input("Enter the task to remove:")
+def removeTask(to_do_list: list):
+    rem = input("Enter the task to remove:").upper()
     if rem in to_do_list:
         to_do_list.remove(rem)
     else:
-        print("Task not found in the list.")
+        print(f"Task '{rem}' not found in the list.")
 
-def viewTasks(to_do_list):
+def viewTasks(to_do_list: list):
     if not to_do_list:
         print("No tasks in the to-do list.")
     else:
-        print("------To-Do List------")
+        print("\n------To-Do List------")
         for idx, task in enumerate(to_do_list, start=1):
             print(f"{idx}. {task}")
 def showList(): 
-        print("------To-Do List Options------")
+        print("\n------To-Do List Options------")
         print("1. Add Task")
         print("2. Remove Task")
         print("3. View Tasks")

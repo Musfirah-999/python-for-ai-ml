@@ -36,4 +36,12 @@ def display_info(name, age):
     print("Name:", name)
     print("Age:", age)
     
-display_info(age=30, name="Bob")  # Using keyword arguments
+def sum(a, b, c=2):
+    return a + b + c
+
+print("Sum:", sum(3, 4))   
+# Uses default c=2
+sum(b=5, a=10, c=3)  # Keyword arguments
+def subtarct(a, b):
+    print(f"{a} - {b} = {a - b}")
+subtarct(b=5, a=10)  # Keyword arguments

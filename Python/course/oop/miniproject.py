@@ -1,8 +1,8 @@
 class Account:
-    def __init__(self,account_number, balance,transactions = []):
+    def __init__(self,account_number, balance):
         self.account_number = account_number
         self.balance = balance
-        self.transactions = transactions
+        self.transactions = []
     
     def input_details(self):
         amount = float(input("Enter amount to deposit/withdraw: "))
@@ -48,10 +48,10 @@ class BankSystem:
     def __init__(self):
         self.accounts = {}  # Dictionary to store accounts by account number
         
-    def get_account(self,account_number):
+    def get_account(self,account_number) -> Account:
         return self.accounts.get(account_number, None)
     
-    def create_account(self, account_number, initial_balance):
+    def create_account(self, account_number, initial_balance) :
         if account_number in self.accounts:
             print("Account already exists.")
             return None

@@ -21,17 +21,46 @@ class Animal:
         print(f"{self.name} is eating.")
     def sleep(self):
         print(f"{self.name} is sleeping.")
+    def make_sound(self):
+        print(f"{self.name} is making sound.")
 
 class Mammal(Animal):
-    pass
+    def nurse(self):
+        print(f"{self.name} is nursing.")
+class Dog(Mammal):
+    def fetch(self):
+        print(f"{self.name} is fetching a ball.")
+    def make_sound(self):
+        print(f"{self.name} is barking.")
 
 class Bird(Animal):
-    pass
+    def fly(self):
+        print(f"{self.name} is flying.") 
+    def build_nest(self):
+        print(f"{self.name} is building nest.") 
 class Reptile(Animal):
-    pass
+    def hiberate(self):
+        print(f"{self.name} is hiberating.") 
+        
 
-cat = Mammal("cat")
-cat.eat()
+myDog = Dog("Puppy")
+myDog.nurse()
+myDog.sleep()
+myDog.fetch()
+myDog.make_sound()
+# cat = Mammal("Cat")
+# cat.eat()
+# cat.nurse()
 
-bird = Bird("Parrot")
-bird.sleep()
+# bird = Bird("Parrot")
+# bird.sleep()
+# bird.build_nest()
+# bird.fly()
+
+# reptile = Reptile("Spooky")
+# reptile.eat()
+# reptile.hiberate()
+
+
+myAnimal = Mammal("Cat")
+myAnimal.make_sound()

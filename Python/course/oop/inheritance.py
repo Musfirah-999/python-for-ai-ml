@@ -25,12 +25,17 @@ class Animal:
         print(f"{self.name} is making sound.")
 
 class Mammal(Animal):
+    def __init__(self, name,fur_type):
+        super().__init__(name)
+        self.fur_type = fur_type
     def nurse(self):
         print(f"{self.name} is nursing.")
 class Dog(Mammal):
+    
     def fetch(self):
         print(f"{self.name} is fetching a ball.")
     def make_sound(self):
+        super().make_sound()
         print(f"{self.name} is barking.")
 
 class Bird(Animal):
@@ -43,11 +48,6 @@ class Reptile(Animal):
         print(f"{self.name} is hiberating.") 
         
 
-myDog = Dog("Puppy")
-myDog.nurse()
-myDog.sleep()
-myDog.fetch()
-myDog.make_sound()
 # cat = Mammal("Cat")
 # cat.eat()
 # cat.nurse()
@@ -62,5 +62,16 @@ myDog.make_sound()
 # reptile.hiberate()
 
 
-myAnimal = Mammal("Cat")
-myAnimal.make_sound()
+# myAnimal = Mammal("Cat", "Curly fur")
+# myAnimal.make_sound()
+# myAnimal.fur_type = "Double coat"
+
+myDog = Dog("Puppy", "Wavy fur")
+# myDog.nurse()
+# myDog.sleep()
+# myDog.fetch()
+myDog.make_sound()
+myDog.fur_type= "Wool coat"
+
+# yourAnimal = Animal("Your pet")
+# yourAnimal.make_sound()

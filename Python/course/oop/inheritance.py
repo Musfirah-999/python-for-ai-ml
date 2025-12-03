@@ -22,7 +22,7 @@ class Animal:
     def sleep(self):
         print(f"{self.name} is sleeping.")
     def make_sound(self):
-        print(f"{self.name} is making sound.")
+        print(f"{self.name} aminal is making sound.")
 
 class Mammal(Animal):
     def __init__(self, name,fur_type):
@@ -30,13 +30,20 @@ class Mammal(Animal):
         self.fur_type = fur_type
     def nurse(self):
         print(f"{self.name} is nursing.")
+        
+    def make_sound(self):
+        super().make_sound()
+        #  Animal.make_sound(self)
+        print(f"{self.name} mammal is making sound.")
+        
 class Dog(Mammal):
     
     def fetch(self):
         print(f"{self.name} is fetching a ball.")
     def make_sound(self):
         super().make_sound()
-        print(f"{self.name} is barking.")
+        print(f"{self.name} dog is barking.")
+        # Animal.make_sound(self)
 
 class Bird(Animal):
     def fly(self):

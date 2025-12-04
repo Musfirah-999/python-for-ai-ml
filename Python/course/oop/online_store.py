@@ -12,6 +12,12 @@ class Product:
     
     def __str__(self):
         return f"{self.name}: ${self._price}\t Stock: {self._stock}"
+    def reduce_stock(self, quantity):
+        if quantity >= self._stock:
+            self._stock -= quantity
+            return True
+        else:
+            return False
     
 class Electronics(Product):
     def apply_discount(self): 
@@ -32,5 +38,8 @@ apple = Grocery("Apple", 20,10)
 
 print(f"-----------\nThe products list\n---------------")
 print(laptop)
+laptop.reduce_stock(3)
 print(tshirt)
+tshirt.reduce_stock(5)
 print(apple)
+apple.reduce_stock(6)

@@ -44,14 +44,35 @@ class ShoppingCart:
         else: 
             print(f"Not enough stock for {product.name}")
     
+    def calculate_total_price(self):
+        total_price = 0
+        for item in self.items.values():
+            product:Product = item['product']
+            product.apply_discount()
+            total_price +=product.get_price()*item['quantity']
+        return total_price    
+    
+    def check_out(self):
+        if not self.items:
+            print("Cart is empty!")
+            return
+        print("---------\nCheckout Summary:")
+        message = ""
+        for key, value in self.items.items():
+            message+= f"\n{value['quantity']}x {key} \t ${value['product'].get_price()}"
+        print(message)
+        print(f"TOtal price: ${self.calculate_total_price()}")
+        print(f"Thanks for shopping")
+        self.items.clear()
+       
     def __str__(self):
         if not self.items:
             return "Cart is empty!"
         else:
             message = ""
             for key, value in self.items.items():
-                message+= f"\n{value['quantity']}x {key} \t ${value['product'].get_price()}\n"
-            return f"Items in cart: {message}"
+                message+= f"\n{value['quantity']}x {key} \t ${value['product'].get_price()}"
+            return f"Items in cart: \n{message} \nTotalPrice: ${self.calculate_total_price()}"
         
         
 #Create products      
@@ -69,5 +90,7 @@ cart = ShoppingCart()
 print(cart)
 cart.add_to_cart(laptop, 1)
 cart.add_to_cart(apple, 2)
+print(cart)
+cart.check_out()
 print(cart)
 

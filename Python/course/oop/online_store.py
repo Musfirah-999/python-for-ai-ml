@@ -13,7 +13,7 @@ class Product:
     def __str__(self):
         return f"{self.name}: ${self._price}\t Stock: {self._stock}"
     def reduce_stock(self, quantity):
-        if quantity >= self._stock:
+        if quantity <= self._stock:
             self._stock -= quantity
             return True
         else:
@@ -30,16 +30,44 @@ class Clothing(Product):
 class Grocery(Product):
     def apply_discount(self): 
         self._price *= 0.90  
+   
+
+class ShoppingCart:
+    def __init__(self):
+        self.items = {} #dictionary
+
+    def add_to_cart(self, product: Product, quantity):
+        if product.reduce_stock(quantity):
+            self.items[product.name] = {
+                'product': product,
+                'quantity': quantity }
+        else: 
+            print(f"Not enough stock for {product.name}")
+    
+    def __str__(self):
+        if not self.items:
+            return "Cart is empty!"
+        else:
+            message = ""
+            for key, value in self.items.items():
+                message+= f"\n{value['quantity']}x {key} \t ${value['product'].get_price()}\n"
+            return f"Items in cart: {message}"
         
         
-laptop = Electronics("Laptop", 10000,10)
+#Create products      
+laptop = Electronics("Laptop", 10000,100)
 tshirt = Clothing("TShirt", 1000,20)
 apple = Grocery("Apple", 20,10)
 
 print(f"-----------\nThe products list\n---------------")
 print(laptop)
-laptop.reduce_stock(3)
 print(tshirt)
-tshirt.reduce_stock(5)
 print(apple)
-apple.reduce_stock(6)
+
+#create Shopping cart
+cart = ShoppingCart()
+print(cart)
+cart.add_to_cart(laptop, 1)
+cart.add_to_cart(apple, 2)
+print(cart)
+

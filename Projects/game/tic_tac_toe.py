@@ -55,72 +55,26 @@ def restart_game():
         button.config(text="", bg="SystemButtonFace", state="normal")
     
     label.config(text=f"Player {current_player}'s turn")
-
-def center_grid():
-    """Center the grid when window is resized"""
-    # Configure grid weights to make it expandable
-    for i in range(3):
-        root.grid_rowconfigure(i, weight=1)
-        root.grid_columnconfigure(i, weight=1)
     
-    # Center the buttons frame
-    game_frame.grid(row=1, column=1, sticky="nsew")
-    
-    # Center the label
-    label.grid(row=2, column=1, sticky="nsew", pady=10)
-    
-    # Center the restart button
-    restart_button.grid(row=3, column=1, sticky="nsew", pady=10)
-
-def on_resize(event):
-    """Handle window resize events"""
-    # Update the layout when window is resized
-    center_grid()
-
 root = tk.Tk()
 root.title("Tic-Tac-Toe")
-root.geometry("400x500")  # Set initial size
 
-# Make the root window responsive
-root.grid_rowconfigure(0, weight=1)
-root.grid_rowconfigure(4, weight=1)
-root.grid_columnconfigure(0, weight=1)
-root.grid_columnconfigure(2, weight=1)
+buttons = [tk.Button(root, text="", font=("normal", 25), width=6, height=2, 
+                     command=lambda i=i: button_click(i)) for i in range(9)]
 
-# Create a frame to hold the game buttons
-game_frame = tk.Frame(root)
-game_frame.grid(row=1, column=1)
-
-# Create buttons inside the frame
-buttons = []
-for i in range(9):
-    button = tk.Button(game_frame, text="", font=("normal", 25), width=6, height=2,
-                       command=lambda i=i: button_click(i))
-    buttons.append(button)
-    button.grid(row=i//3, column=i%3, padx=5, pady=5)
-
-# Configure the game_frame grid to be centered
-for i in range(3):
-    game_frame.grid_rowconfigure(i, weight=1)
-    game_frame.grid_columnconfigure(i, weight=1)
+for i, button in enumerate(buttons):
+    button.grid(row=i//3, column=i%3)
 
 current_player = "X"
 winner = False
 game_over = False
 
-# Create label
-label = tk.Label(root, text=f"Player {current_player}'s turn", font=("normal", 16), anchor="center")
-label.grid(row=2, column=1)
+label = tk.Label(root, text=f"Player {current_player}'s turn", font=("normal", 16))
+label.grid(row=3, column=0, columnspan=3)
 
-# Create restart button
+# Add restart button
 restart_button = tk.Button(root, text="Restart Game", font=("normal", 12), 
                            command=restart_game)
-restart_button.grid(row=3, column=1)
-
-# Bind resize event
-root.bind('<Configure>', on_resize)
-
-# Initial centering
-center_grid()
+restart_button.grid(row=4, column=0, columnspan=3, pady=10)
 
 root.mainloop()

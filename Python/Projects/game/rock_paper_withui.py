@@ -57,12 +57,12 @@ style.configure('Instruction.TLabel',
 
 
 try:
-    image_rock1 = ImageTk.PhotoImage(Image.open("d:\\Learning\\python-for-ai-ml\\python-for-ai-ml\\Projects\\game\\right_rock.png").resize(IMAGE_SIZE))
-    image_paper1 = ImageTk.PhotoImage(Image.open("d:\\Learning\\python-for-ai-ml\\python-for-ai-ml\\Projects\\game\\img-3.png").resize(IMAGE_SIZE))
-    image_scissors1 = ImageTk.PhotoImage(Image.open("d:\\Learning\\python-for-ai-ml\\python-for-ai-ml\\Projects\\game\\right_scissors.png").resize(IMAGE_SIZE))
-    image_rock2 = ImageTk.PhotoImage(Image.open("d:\\Learning\\python-for-ai-ml\\python-for-ai-ml\\Projects\\game\\left_rock.png").resize(IMAGE_SIZE))
-    image_paper2 = ImageTk.PhotoImage(Image.open("d:\\Learning\\python-for-ai-ml\\python-for-ai-ml\\Projects\\game\\left_paper.png").resize(IMAGE_SIZE))
-    image_scissors2 = ImageTk.PhotoImage(Image.open("d:\\Learning\\python-for-ai-ml\\python-for-ai-ml\\Projects\\game\\left_scissors.png").resize(IMAGE_SIZE))
+    image_rock1 = ImageTk.PhotoImage(Image.open("D:/Learning/Python/Python/Projects/game/right_rock.png").resize(IMAGE_SIZE))
+    image_paper1 = ImageTk.PhotoImage(Image.open("D:/Learning/Python/Python/Projects/game/img-3.png").resize(IMAGE_SIZE))
+    image_scissors1 = ImageTk.PhotoImage(Image.open("D:/Learning/Python/Python/Projects/game/right_scissors.png").resize(IMAGE_SIZE))
+    image_rock2 = ImageTk.PhotoImage(Image.open("D:/Learning/Python/Python/Projects/game/left_rock.png").resize(IMAGE_SIZE))
+    image_paper2 = ImageTk.PhotoImage(Image.open("D:/Learning/Python/Python/Projects/game/left_paper.png").resize(IMAGE_SIZE))
+    image_scissors2 = ImageTk.PhotoImage(Image.open("D:/Learning/Python/Python/Projects/game/left_scissors.png").resize(IMAGE_SIZE))
     
 except Exception as e:
     print(f"Error loading images: {e}")

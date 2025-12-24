@@ -29,7 +29,7 @@ player_score = Label(window, text=0, font=("arial", 60, "bold"),  bg="orange", f
 computer_score.grid(row = 1, column=0)
 player_score.grid(row = 1, column=3)
 
-player_indi
+
 
 button_rock = Button(window, width=16, height=3, text="Rock", font = ("arial", 20, "bold"), bg="yellow", fg= "red").grid(row=2, column=1)
 button_paper = Button(window, width=16, height=3, text="Paper", font = ("arial", 20, "bold"), bg="yellow", fg= "red").grid(row=2, column=2)
